@@ -6,6 +6,7 @@ ENV SERVER_PORT=8080
 RUN git clone --depth 1 https://github.com/EvolutionAPI/evolution-api.git . \
   && npm install --no-audit --no-fund \
   && npm install --no-save esbuild@0.25.12 \
+  && npx prisma generate \
   && npm run build
 EXPOSE 8080
 CMD ["npm", "run", "start:prod"]
