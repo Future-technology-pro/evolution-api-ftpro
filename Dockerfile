@@ -10,4 +10,4 @@ RUN git clone --depth 1 https://github.com/EvolutionAPI/evolution-api.git . \
   && npx prisma generate --schema=./prisma/postgresql-schema.prisma \
   && npm run build
 EXPOSE 8080
-CMD ["npm", "run", "start:prod"]
+CMD ["sh", "-c", "npx prisma db push --schema=./prisma/postgresql-schema.prisma --accept-data-loss && npm run start:prod"]
