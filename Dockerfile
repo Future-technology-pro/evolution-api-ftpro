@@ -1,7 +1,7 @@
 FROM node:20-alpine
 RUN apk add --no-cache git python3 make g++
 WORKDIR /app
-ENV NODE_OPTIONS="--max-old-space-size=512"
+ENV NODE_OPTIONS="--max-old-space-size=1536"
 ENV SERVER_PORT=8080
 ENV DATABASE_PROVIDER=postgresql
 RUN git clone --depth 1 https://github.com/EvolutionAPI/evolution-api.git . \
